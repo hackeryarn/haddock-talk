@@ -1,0 +1,44 @@
+#+TITLE: Haddock
+
+* Key Features
+- Light weight format
+- Automatic hyperlinking
+- Documentation lives with your code
+- Understands Haskell
+- Only exports exposed documentation
+
+* Usage in a project
+- Integrates with ~cabal~, ~stack~, and ~hoogle~
+- We will focus on ~cabal~ and ~hoogle~ integration
+- Most of the points also apply to ~stack~
+
+* Minimal shell.nix
+
+#+BEGIN_SRC nix
+{ pkgs ? import <nixpkgs> { } }:
+
+mkShell {
+  buildInputs = with pkgs; [
+    ghc
+    cabal-install
+    haskellPackages.hoogle
+  ];
+}
+#+END_SRC
+
+* Hoogle
+- Provides search for all haskell documentation
+- Integrates with your project
+- Index all of Stackage: ~hoogle generate~
+
+* Generating local documentation
+- Generate Haddock:
+  ~cabal haddock --haddock-hoogle --haddock-html~
+  - ~--haddock-hoogle~ generates a ~.txt~ file read by Hoogle
+  - ~--haddock-html~ generates the web content
+- Update Hoogle:
+  ~hoogle generate --local=dist-newstyle/~
+  - You have to specify the local dist directory to properly link documentation
+- Start Hoogle server:
+  ~hoogle server -p 1337 --local~
+  - ~--local~ provides links directly to documentation files in the project
