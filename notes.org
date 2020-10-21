@@ -42,3 +42,11 @@ mkShell {
 - Start Hoogle server:
   ~hoogle server -p 1337 --local~
   - ~--local~ provides links directly to documentation files in the project
+
+* What do I get automatically?
+
+* Basic documentation
+- Standard Haskell comments (starting with ~--~) get ignored
+- Documentation goes before or after definitions and declarations, otherwise it's ignored.
+- ~-- |~ Denotes documentation before an item
+- ~-- ^~ Denotes documentation following an item
