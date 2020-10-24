@@ -1,3 +1,14 @@
+{-|
+Module : Data.List
+Description : A list implementation with no special syntax.
+Copyright : (c) Artem Chernyak, 2020
+License : GPL-3
+Mainter : artemchernyak@gmail.com
+Stability : experimental
+
+This module was designed for a talk on Haddock it provides a very simple
+list type with only a few instances. Do not use this in any real code.
+-}
 module Data.List
   ( Identity
   , List(Cons, Empty)
@@ -18,8 +29,8 @@ data List a
   = Cons a (List a)
   -- |Represents a list with no items.
   | Empty
-  deriving ( Show  -- ^@since 0.0.1.0
-           , Eq -- ^default 'Eq' instance
+  deriving ( Show  -- ^since 0.0.1.0
+           , Eq -- ^default Eq instance
            )
 
 instance Functor List where
