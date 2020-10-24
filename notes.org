@@ -50,3 +50,19 @@ mkShell {
 - Documentation goes before or after definitions and declarations, otherwise it's ignored.
 - ~-- |~ Denotes documentation before an item
 - ~-- ^~ Denotes documentation following an item
+
+* Module documentation
+- Module
+- Description
+- Copyright
+- License
+- Maintainer
+- Stability
+- Portability
+- Long Description
+- (must be in this order)
+
+* Controlling structure
+- Export order become documentation order
+- Full re-exports get exported as links
+- Partial re-exports get fully included as part of the module
