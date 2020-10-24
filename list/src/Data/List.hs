@@ -10,18 +10,34 @@ This module was designed for a talk on Haddock it provides a very simple
 list type with only a few instances. Do not use this in any real code.
 -}
 module Data.List
-  ( Identity
-  , List(Cons, Empty)
-  , mapL
+  ( -- * Identity class
+    -- | Provides an example of documenting a type class implementation.
+    Identity
   , identity
+    -- * List
+    -- $List
+  , List(Cons, Empty)
+  ,
+    -- ** Helper functions
+    mapL
+    -- * Partial Functor re-export
+  , module Data.Functor
+    -- * Full Applicative re-export
+  , module Control.Applicative
   )
 where
+
+import           Data.Functor            hiding ( fmap )
+import           Control.Applicative
 
 -- |A silly sample of a higher kinded identity.
 class Identity i where
   -- |Does the only sensible thing.
   -- Returns what ever gets passed in.
   identity :: i a -> i a
+
+-- $List
+-- Provides an example of documenting a data type.
 
 -- |A list implementation with no special syntax.
 data List a
