@@ -66,3 +66,9 @@ mkShell {
 - Export order become documentation order
 - Full re-exports get exported as links
 - Partial re-exports get fully included as part of the module
+
+* Code blocks
+- Prefixed by ~>~
+  - Interprets code block literally
+- Surrounded by ~@~
+  - Allows Haddock markup in the code block
