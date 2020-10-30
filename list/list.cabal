@@ -48,7 +48,11 @@ extra-source-files:  CHANGELOG.md
 
 library
   -- Modules exported by the library.
-  exposed-modules:     MyLib, Data.List
+  exposed-modules:     MyLib,
+                       Data.List,
+                       Markup,
+                       Data.ListWithBasicComments,
+                       Data.ListWithNoDocs
 
   -- Modules included in this library but not exported.
   -- other-modules:
