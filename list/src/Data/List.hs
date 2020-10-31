@@ -45,8 +45,8 @@ data List a
   = Cons a (List a)
   -- |Represents a list with no items.
   | Empty
-  deriving ( Show  -- ^since 0.0.1.0
-           , Eq -- ^default Eq instance
+  deriving ( Show  -- ^@since 0.0.1.0
+           , Eq -- ^default 'Eq' instance
            )
 
 instance Functor List where

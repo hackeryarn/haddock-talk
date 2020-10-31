@@ -1,5 +1,5 @@
 {-|
-Module : Data.List
+Module : Data.ListWithBasicComments
 Description : A list implementation with no special syntax.
 Copyright : (c) Artem Chernyak, 2020
 License : GPL-3
@@ -29,8 +29,8 @@ data List a
   = Cons a (List a)
   -- |Represents a list with no items.
   | Empty
-  deriving ( Show  -- ^since 0.0.1.0
-           , Eq -- ^default Eq instance
+  deriving ( Show  -- ^@since 0.0.1.0
+           , Eq -- ^default 'Eq' instance
            )
 
 instance Functor List where
@@ -46,6 +46,7 @@ instance Identity List where
   identity = id
 
 -- |Provides a way for transforming the values in a list.
+-- #mapL#
 mapL :: (a -> b) -> List a -> List b
 mapL _ Empty       = Empty
 mapL f (Cons x xs) = Cons (f x) (mapL f xs)
