@@ -52,7 +52,8 @@ library
                        Data.List,
                        Markup,
                        Data.ListWithBasicComments,
-                       Data.ListWithNoDocs
+                       Data.ListWithNoDocs,
+                       Intro
 
   -- Modules included in this library but not exported.
   -- other-modules:
