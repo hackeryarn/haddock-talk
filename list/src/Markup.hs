@@ -69,6 +69,10 @@ where
 -- * __*__
 -- - __-__
 --
+-- Nested lists are created by a 4 space indent.
+--
+-- Always indent code blocks in the bullet.
+--
 -- Create enumerated lists with:
 --
 -- (1) __(1)__
