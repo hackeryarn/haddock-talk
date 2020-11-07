@@ -1,0 +1,113 @@
+\documentclass{beamer}
+
+\usepackage{fontspec}
+\usepackage{xcolor}
+
+\usefonttheme{serif}
+\setmainfont{Charter}
+
+
+\definecolor{primary}{RGB}{94,80,134}
+\definecolor{secondary}{RGB}{119,119,119}
+
+\setbeamercolor{title}{fg=primary}
+\setbeamercolor{frametitle}{fg=primary}
+\setbeamercolor{itemize item}{fg=primary}
+
+\setbeamercolor{block title example}{fg=secondary}
+\setbeamercolor{author}{fg=secondary}
+\setbeamercolor{date}{fg=secondary}
+
+\newcommand{\code}[1]{{\color{secondary} \texttt{#1}}}
+
+\title{Documentation with Haddock}
+\author{Artem Chernyak}
+\date{2020}
+
+\begin{document}
+
+  \frame{\titlepage}
+
+  \begin{frame}
+    \frametitle{Why Document?}
+    \begin{itemize}
+      \item Explain why the code exists
+      \item Provide examples
+      \item Demonstrate workflow
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Why Haddock?}
+    \begin{itemize}
+      \item Light weight format
+      \item Documentation lives with the code
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Understands Haskell}
+    \begin{itemize}
+      \item Automatic hyperlinking
+      \item Only exports exposed documentation
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Integrates with Hoogle}
+    \begin{itemize}
+      \item Provides search for all haskell documentation
+      \item Integrates with your project
+      \item Index all of Stackage: \code{hoogle generate}
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}[fragile]
+    \frametitle{Minimal Requirements}
+    \begin{example}[shell.nix]
+      \begin{verbatim}
+        { pkgs ? import \<nixpkgs> { } }:
+
+        mkShell {
+          buildInputs = with pkgs; [
+            ghc
+            cabal-install
+            haskellPackages.hoogle
+          ];
+        }
+      \end{verbatim}
+    \end{example}
+  \end{frame}
+
+  \begin{frame}[fragile]
+    \frametitle{Generate Haddock}
+    \begin{verbatim}
+$ cabal haddock --haddock-hoogle --haddock-html
+    \end{verbatim}
+    \begin{itemize}
+        \item \code{--haddock-hoogle} generates a \code{.txt} file read by Hoogle
+        \item \code{--haddock-html} generates the web content
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}[fragile]
+    \frametitle{Update Hoogle}
+    \begin{verbatim}
+$ hoogle generate --local=dist-newstyle/
+    \end{verbatim}
+    \begin{itemize}
+        \item You have to specify the local dist directory to properly link documentation
+    \end{itemize}
+  \end{frame}
+
+  \begin{frame}[fragile]
+    \frametitle{Start Hoogle server}
+    \begin{verbatim}
+$ hoogle server -p 4444 --local
+    \end{verbatim}
+    \begin{itemize}
+        \item \code{--local} provides links directly to documentation files in the project
+    \end{itemize}
+  \end{frame}
+
+\end{document}

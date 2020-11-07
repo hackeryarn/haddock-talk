@@ -7,3 +7,10 @@ tmp/
 .direnv/
 dist/
 dist-newstyle/
+*.aux
+*.nav
+*.out
+*.snm
+*.toc
+*.vrb
+.auctex-auto/
